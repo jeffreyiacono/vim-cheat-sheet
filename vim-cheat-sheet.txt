@@ -1,0 +1,80 @@
+VIM Cheat Sheet
+
+<< note: following collected from http://jmcpherson.org/editing.html >>
+
+f x
+Move the cursor forward to the next occurance of the character x on the current line (obviously, x can be any character you like). This is an extremely useful command. You can type ; to repeat the last f command you gave.
+
+t x
+Same as above, but moves the cursor to right before the character, not all the way to it. (It's very useful, really.)
+
+F x
+Move the cursor backward to the next occurance of the character x on the current line.
+
+)
+Move the cursor forward to the next sentence. (Useful when editing e-mail or text documents.)
+
+(
+Move the cursor backward by a sentence.
+
+<C-F>
+Move the cursor forward by a screenful of text
+
+<C-B>
+Move the cursor backward by a screenful of text
+
+numG
+Move the cursor line num. (For instance, 10G moves to line 10.)
+
+*
+Read the string under the cursor and go to the next place it appears. (For instance, if your cursor was somewhere on the word "bob," the cursor would move to the next occurance of "bob" in your file.)
+
+#
+Same as above, except it moves the cursor to the previousoccurance.
+
+?text
+Starting from the cursor, find the previous occurance of the string text and go to it. You will need to press Enter to execute the search. To re-execute your last search, type n (for next occurance).
+Same as /, but searches in the opposite direction.
+
+ma
+Make a bookmark named a at the current cursor position. A bookmark can be named any lowercase letter. You can't see the bookmark, but it's there!
+
+`a
+Go to bookmark a. Important: that's a backtick, not a single quote. The backtick is located to the left of the 1 on most keyboards.
+
+Keyword Completion
+If you have a variable called iAmALongAndAwkwardVarName, to use keyword completion, just type the first few letters of the string (e.g.iAmAL) and press <C-N> (that means hold down Ctrl and type N) or <C-P>. If vim doesn't give you the word you want at first, keep trying -- vim will cycle through all completions it can find.
+
+c{motion}
+Delete (change) the text moved over by {motion} and insert text to replace it. For instance, c$ would delete the text from the cursor to the end of the line and enter insert mode. ct! would delete the text from the cursor up to (but not including) the next exclamation mark and enter insert mode. The deleted text is copied to the clipboard and can be pasted.
+
+d{motion}
+Delete the text moved over by {motion} -- same asc{motion}, but doesn't enter insert mode.
+
+dw
+Delete word.
+
+V
+Linewise selection mode. Whole lines are always selected. This is better than characterwise mode when you want to copy or move a group of lines.
+
+Using multiple clipboards
+Most editors have a single clipboard. vim has many more; clipboards in vim are called registers. You can list all the currently defined registers and their contents by typing :reg. Typically, you'll be using the lowercase letter registers; the others are used for various internal vim purposes and are only occasionally helpful.
+To use a specific register for a copy or paste operation, simply type "a before the command for the operation, where a is the register you want to use.
+For example, to copy the current line into register k, you could type "kyy. (You could also type V"ky. Why would that work?). That line would stay in register kuntil you specifically copied something else into register k. You would then use"kp to paste the text from register k.
+qregister
+Start macro recording into the named register. For instance, qa starts recording and puts the macro into register a.
+
+q
+End recording.
+
+@register
+Replay the macro stored in the named register. For instance, @a replays the macro in register a.
+
+]p
+Just like p, but it automatically adjusts the indent level of the pasted code to match that of the code you paste into. Try it!
+
+%
+Putting the cursor on a brace, bracket, or parenthesis and pressing %will send the cursor to the matching brace, bracket, or parenthese. Great for fixing parse problems related to heavily nested blocks of code or logic.
+
+gd
+Go to the definition (or declaration) of the function or variable under the cursor.
