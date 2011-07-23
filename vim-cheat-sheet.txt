@@ -61,6 +61,7 @@ Using multiple clipboards
 Most editors have a single clipboard. vim has many more; clipboards in vim are called registers. You can list all the currently defined registers and their contents by typing :reg. Typically, you'll be using the lowercase letter registers; the others are used for various internal vim purposes and are only occasionally helpful.
 To use a specific register for a copy or paste operation, simply type "a before the command for the operation, where a is the register you want to use.
 For example, to copy the current line into register k, you could type "kyy. (You could also type V"ky. Why would that work?). That line would stay in register kuntil you specifically copied something else into register k. You would then use"kp to paste the text from register k.
+
 qregister
 Start macro recording into the named register. For instance, qa starts recording and puts the macro into register a.
 
