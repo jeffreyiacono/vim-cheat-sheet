@@ -1,5 +1,26 @@
 VIM Cheat Sheet
 
+:d0
+Delete everything to the left of the cursor
+
+:e
+Move to the end of the word
+
+:r filename
+Insert filename's contents into the current cursor position
+
+Vip
+Select the whole paragraph
+
+s<tag>
+[surround plugin dependent] surround the current selection with the specified <tag>
+
+vit
+Select inner text of <tag> context. For example: <li>It will select this<li> (but not <li> or </li>)
+
+==
+[li]Fix indent[/li]
+
 << note: following collected from http://jmcpherson.org/editing.html >>
 
 f x
