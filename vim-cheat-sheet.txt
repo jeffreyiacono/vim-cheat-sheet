@@ -1,5 +1,8 @@
 VIM Cheat Sheet
 
+]p
+paste buffer and auto adjust the indent to match the line the cursor is on
+
 :e filename
 edit another file
 
